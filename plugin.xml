@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.soundsoftware.plugins.SoundDialogs"
+        version="0.0.1">
+
+    <name>Sound Dialogs</name>
+
+    <description>
+        A collection of dialogs
+    </description>
+
+    <license>MIT</license>
+
+    <engines>
+        <engine name="cordova" version=">=3.0.0"/>
+    </engines>
+
+    <js-module src="www/SoundDialogs.js" name="SoundDialogs">
+        <clobbers target="window.plugins.sound.dialogs" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="SoundDialogs">
+                <param name="android-package" value="com.soundsoftware.plugins.SoundDialogs" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/SoundDialogs.java" target-dir="src/com/soundsoftware/plugins"/>
+    </platform>
+</plugin>
