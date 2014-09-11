@@ -2,12 +2,12 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
         id="com.soundsoftware.plugins.SoundDialogs"
-        version="0.0.2">
+        version="0.0.3">
 
     <name>SoundDialogs</name>
 
     <description>
-        A collection of dialogs
+        A password prompt dialog that displays a native alert.  It has a single input that obfuscates the password.
     </description>
 
     <license>MIT</license>
