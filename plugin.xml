@@ -4,7 +4,7 @@
         id="com.soundsoftware.plugins.SoundDialogs"
         version="0.0.1">
 
-    <name>Sound Dialogs</name>
+    <name>SoundDialogs</name>
 
     <description>
         A collection of dialogs
@@ -19,6 +19,23 @@
     <js-module src="www/SoundDialogs.js" name="SoundDialogs">
         <clobbers target="window.plugins.sound.dialogs" />
     </js-module>
+
+
+    <!-- ios -->
+    <platform name="ios">
+
+        <config-file target="config.xml" parent="/*">
+            <feature name="SoundDialogs">
+                <param name="ios-package" value="SoundDialogs"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/SoundDialogs.h"/>
+        <source-file src="src/ios/SoundDialogs.m"/>
+
+        <framework src="QuartzCore.framework" />
+    </platform>
+
 
     <!-- android -->
     <platform name="android">

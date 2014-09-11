@@ -30,21 +30,21 @@ public class SoundDialogs extends CordovaPlugin {
 			return false;
 		}
 	}
-	
+
     /**
      * Builds and shows a native Android prompt dialog with given title, message, and buttons.
      * This input is obfuscated as is expected of passwords.
-     * 
+     *
      * The following results are returned to the JavaScript callback identified by callbackId:
      *     buttonIndex			Index number of the button selected
      *     password				The text entered in the prompt dialog box
      *
      * @param message           The message the dialog should display
      * @param title             The title of the dialog
-     * @param buttonLabels      A comma separated list of button labels.  This supports a positive and a negative button only
+     * @param buttonLabels      A comma separated list of button labels.  This supports a positive and a negative button only.  Negative comes first.
      * @param callbackContext   The callback context.
      */
-	public synchronized void passwordPrompt(final String message, final String title, final JSONArray buttonLabels, final String defaultText, final CallbackContext callbackContext){
+	public synchronized void passwordPrompt(final String message, final String title, final JSONArray buttonLabels, final CallbackContext callbackContext){
 		Runnable prompt = new Runnable() {
 
 			@Override
@@ -65,17 +65,15 @@ public class SoundDialogs extends CordovaPlugin {
 								.getInstance());
 				alert.setView(promptInput);
 				try {
-					alert.setPositiveButton(buttonLabels.getString(0),
+					alert.setPositiveButton(buttonLabels.getString(1),
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
 										int whichButton) {
-									// Do something with value!
 									try {
 										result.put("password", promptInput
 												.getText().toString().trim());
-										result.put("buttonIndex", 1);
+										result.put("submit", 1);
 									} catch (JSONException e) {
-										// TODO Auto-generated catch block
 										e.printStackTrace();
 									}
 									callbackContext
@@ -91,14 +89,13 @@ public class SoundDialogs extends CordovaPlugin {
 				}
 
 				try {
-					alert.setNegativeButton(buttonLabels.getString(1),
+					alert.setNegativeButton(buttonLabels.getString(0),
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
 										int whichButton) {
 									try {
-										result.put("buttonIndex", 2);
+										result.put("submit", 0);
 									} catch (JSONException e) {
-										// TODO Auto-generated catch block
 										e.printStackTrace();
 									}
 									callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, result));

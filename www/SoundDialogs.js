@@ -8,13 +8,39 @@ SoundDialogs.prototype.passwordPrompt = function (options) {
     }
 
     var args = {};
-    args.message = (options.message || "Prompt message");
-    args.title = (options.title || "Prompt");
-    args.buttonLabels = (options.buttonLabels || ["OK", "Cancel"]);
-    args.defaultText = (options.defaultText || "");
-    cordova.exec(options.callback, function(message){
-        console.log('Error callback fired', message);
-    }, 'SoundDialogs', "passwordPrompt", [args.message, args.title, args.buttonLabels, args.defaultText ]);
+    args.message = (options.message || "Please provide a password");
+    args.title = (options.title || "Password");
+    args.buttonLabels = (options.buttonLabels || ["Cancel", "OK"]);
+    //==============================================
+    //  I want to be able to test if "submit" as a bool, so I'm going to force an int here
+    //  before calling the user provided callback...   - BMW (9/11/14)
+    //==============================================
+    function callback(results){
+        if(!options.callback){
+            console.log('No callback provided for sound.dialogs.passwordPrompt.  Acceptable, but not very useful')
+            return;
+        }
+
+        var callbackData = {
+            submit: parseInt(results.submit)
+        };
+
+        if(results.password){
+            callbackData.password = results.password;
+        }
+
+        options.callback(callbackData);
+
+    }
+
+    var error;
+    if(options.error){
+        error = options.error
+    } else {
+        error = null;
+    }
+
+    cordova.exec(callback, error, 'SoundDialogs', "passwordPrompt", [args.message, args.title, args.buttonLabels]);
 };
 
 SoundDialogs.install = function () {
