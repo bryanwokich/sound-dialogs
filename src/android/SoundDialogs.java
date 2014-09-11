@@ -22,7 +22,7 @@ public class SoundDialogs extends CordovaPlugin {
 			final CallbackContext callbackContext) throws JSONException {
 
 		if (PASSWORD_PROMPT.equals(action)) {
-			this.passwordPrompt(args.getString(0), args.getString(1), args.getJSONArray(2), args.getString(3), callbackContext);
+			this.passwordPrompt(args.getString(0), args.getString(1), args.getJSONArray(2), callbackContext);
 			return true;
 		} else {
 			callbackContext
