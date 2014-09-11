@@ -17,7 +17,7 @@ $ cordova plugin add /path/to/SoundDialogs
 I'm submitting this to the plugin registry.  I hope the following will work soon..
 
 ```
-$ cordova plugin add git@github.com:bryanwokich/sound-dialogs.git
+$ cordova plugin add https://github.com/bryanwokich/sound-dialogs.git
 ```
 
 ## 3. Usage
