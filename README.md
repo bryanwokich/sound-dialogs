@@ -22,12 +22,12 @@ Once you get the plugin installed you will be able to use the following....
 window.plugins.sound.dialogs.passwordPrompt({
     callback: function(result){
         if(result.submit){ // submit return 1 if form submitted, 0 if canceled.
-            console.log('Password', result.password); // And your password.  
+            console.log('Password', result.password); // And your password.
         }
         // success callback function 
     }, 
     title: "Title on Prompt", // optional, defaults to "Password"
-    message: "Message on prompt", // optional, defaults to "Please provid a password
+    message: "Message on prompt", // optional, defaults to "Please provide a password"
     buttonLabels: ["Cancel Display Value", "Accept Display Value"], // optional, defaults to ["Cancel", "OK"]
     error: function(){
         //  error callback.  Default to null.
