@@ -17,8 +17,7 @@ $ cordova plugin add git@github.com:bryanwokich/sound-dialogs.git
 
 ## 2. Usage
 ```
-
-$  window.plugins.sound.dialogs.passwordPrompt({
+window.plugins.sound.dialogs.passwordPrompt({
     callback: function(results){
       // success callback function 
     }, 
