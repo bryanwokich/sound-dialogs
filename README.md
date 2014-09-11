@@ -11,7 +11,7 @@ As of this writing it supports android.  I'm going to get iOS up soon.  Once I h
 ## 2.  Installation 
 Currently, you have to pull from the repo and install via 
 ```
-cordova plugin add /path/to/SoundDialogs
+$ cordova plugin add /path/to/SoundDialogs
 ```
 
 I'm submitting this to the plugin registry.  I hope the following will work soon..
