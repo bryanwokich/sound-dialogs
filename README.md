@@ -18,7 +18,7 @@ $ cordova plugin add git@github.com:bryanwokich/sound-dialogs.git
 ## 2. Usage
 ```
 window.plugins.sound.dialogs.passwordPrompt({
-    callback: function(results){
+    callback: function(result){
         if(result.submit){ // submit return 1 if form submitted, 0 if canceled.
             console.log('Password', result.password); // And your password.  
         }
