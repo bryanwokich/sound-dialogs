@@ -10,6 +10,9 @@ As of this writing it supports android.  I'm going to get iOS up soon.  Once I h
 
 ## Installation 
 
-``` You can install the 
+You can install the plugin using the 
+```
+$ cordova plugin add 
+```
 Happy Coding!
 Bryan 
