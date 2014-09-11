@@ -8,14 +8,19 @@ This is basic phonegap plugin for dialogs.  I may extend it in the future, so it
 As of this writing it supports android.  I'm going to get iOS up soon.  Once I have those two I'll put up some directions.
 
 
-## 1.  Installation 
-
-You can install the plugin using the cordova cli. 
+## 2.  Installation 
+Currently, you have to pull from the repo and install via 
 ```
-$ cordova plugin add git@github.com:bryanwokich/sound-dialogs.git
+$ cordova plugin add /path/to/SoundDialogs
 ```
 
-## 2. Usage
+I'm submitting this to the plugin registry.  I hope the following will work soon..
+
+```
+$ cordova plugin add https://github.com/bryanwokich/sound-dialogs.git
+```
+
+## 3. Usage
 Once you get the plugin installed you will be able to use the following....
 
 ```
