@@ -19,15 +19,15 @@ $ cordova plugin add git@github.com:bryanwokich/sound-dialogs.git
 ```
 window.plugins.sound.dialogs.passwordPrompt({
     callback: function(results){
-      // success callback function 
+        // success callback function 
     }, 
     title: "Title on Prompt", // optional, defaults to "Password"
     message: "Message on prompt", // optional, defaults to "Please provid a password
     buttonLabels: ["Cancel Display Value", "Accept Display Value"], // optional, defaults to ["Cancel", "OK"]
     error: function(){
-    //  error callback.  Default to null.
+        //  error callback.  Default to null.
     }
-  });
+});
 ```
 Happy Coding!
 Bryan 
