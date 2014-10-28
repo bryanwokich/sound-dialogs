@@ -23,7 +23,6 @@
 
     <!-- ios -->
     <platform name="ios">
-
         <config-file target="config.xml" parent="/*">
             <feature name="SoundDialogs">
                 <param name="ios-package" value="SoundDialogs"/>
