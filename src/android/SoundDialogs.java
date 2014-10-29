@@ -1,7 +1,5 @@
 package com.soundsoftware.plugins;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -62,31 +60,21 @@ public class SoundDialogs extends CordovaPlugin {
 			@Override
 			public void run() {
 				final JSONObject result = new JSONObject();
-				
+
 				// Set the light theme...
 				AlertDialog.Builder alert = new AlertDialog.Builder(
 						cordova.getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT);
-				
+
 				alert.setCancelable(true);
 				alert.setTitle(title);
-				
-				final EditText filterInput = new EditText(
-						cordova.getActivity());
-				
-				alert.setView(filterInput);
-				List<String>listItems = new ArrayList<String>();
-				for(int i = 0; i < options.length(); i++){
-					JSONObject currObj;
-					try {
-						currObj = options.getJSONObject(i);
-						listItems.add(currObj.getString("value"));
-					} catch (JSONException e) {
-						e.printStackTrace();
-					}
-				}
 
-				final CharSequence[] choices = listItems.toArray(new CharSequence[listItems.size()]);
-				alert.setSingleChoiceItems(choices, 1, null);
+
+
+				final SearchListView slv = new SearchListView(cordova.getActivity(), options, null);
+
+				alert.setView(slv);
+
+
 				try {
 					alert.setPositiveButton(buttonLabels.getString(1),
 							new DialogInterface.OnClickListener() {
@@ -94,6 +82,7 @@ public class SoundDialogs extends CordovaPlugin {
 										int whichButton) {
 									try {
 										result.put("submit", 1);
+										result.put("selected", slv.getValue());
 									} catch (JSONException e) {
 										e.printStackTrace();
 									}

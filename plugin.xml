@@ -43,7 +43,7 @@
                 <param name="android-package" value="com.soundsoftware.plugins.SoundDialogs" />
             </feature>
         </config-file>
-
         <source-file src="src/android/SoundDialogs.java" target-dir="src/com/soundsoftware/plugins"/>
+        <source-file src="src/android/SearchListView.java" target-dir="src/com/soundsoftware/plugins"/>
     </platform>
 </plugin>
