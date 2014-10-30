@@ -5,7 +5,7 @@ function SoundDialogs() {
 
 
 
-SoundDialogs.prototype.selectKVP = function(options){
+SoundDialogs.prototype.filterRadio = function(options){
     console.log('Select KVPs plugin JS', options);
     if(!options){
         throw 'Sound KVP Filter has been passed empty parameters.'
@@ -43,7 +43,7 @@ SoundDialogs.prototype.selectKVP = function(options){
     args.buttonLabels = (options.buttonLabels || this.defaultButtons);
     args.options = options.options;
     console.log('button values', args.buttonLabels);
-    cordova.exec(callback, error, 'SoundDialogs', "selectKVP", [args.options, args.buttonLabels, args.title]);
+    cordova.exec(callback, error, 'SoundDialogs', "filterRadio", [args.options, args.buttonLabels, args.title]);
 }
 
 

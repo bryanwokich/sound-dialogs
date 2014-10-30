@@ -19,7 +19,7 @@ import android.widget.EditText;
 public class SoundDialogs extends CordovaPlugin {
 
 	private static final String PASSWORD_PROMPT = "passwordPrompt";
-	private static final String SELECT_KVP = "selectKVP";
+	private static final String FILTER_RADIO = "filterRadio";
 
 	@Override
 	public boolean execute(String action, JSONArray args,
@@ -29,8 +29,8 @@ public class SoundDialogs extends CordovaPlugin {
 			this.passwordPrompt(args.getString(0), args.getString(1), args.getJSONArray(2), callbackContext);
 			return true;
 		}
-		else if (SELECT_KVP.equals(action)) {
-			this.selectKVP(args.getJSONArray(0), args.getJSONArray(1), args.getString(2), callbackContext);
+		else if (FILTER_RADIO.equals(action)) {
+			this.filterRadio(args.getJSONArray(0), args.getJSONArray(1), args.getString(2), callbackContext);
 			return true;
 		}
 		else {
@@ -43,18 +43,18 @@ public class SoundDialogs extends CordovaPlugin {
 
 
     /**
-     * Builds and shows a native Android prompt dialog to allow the user to select key value pairs.
+     * Builds and shows a native Android prompt dialog to allow the user to select from filterable radio buttons.
      * This input is obfuscated as is expected of passwords.
      *
      * The following results are returned to the JavaScript callback identified by callbackId:
      *     buttonIndex			Index number of the button selected
      *     selected			    The value of the KVP that was selected
      *
-     * @param options           These are the KVPs they need to be objects with "Key" and "Value" defined.
+     * @param options           This is an array of values.
      * @param buttonLabels      A comma separated list of button labels.  This supports a positive and a negative button only.  Negative comes first.
      * @param callbackContext   The callback context.
      */
-	public synchronized void selectKVP(final JSONArray options, final JSONArray buttonLabels, final String title, final CallbackContext callbackContext){
+	public synchronized void filterRadio(final JSONArray options, final JSONArray buttonLabels, final String title, final CallbackContext callbackContext){
 		Runnable prompt = new Runnable() {
 			@TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
 			@Override
