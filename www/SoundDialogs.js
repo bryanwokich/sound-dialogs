@@ -7,11 +7,11 @@ function SoundDialogs() {
 
 SoundDialogs.prototype.filterRadio = function(options){
     if(!options){
-        throw 'Sound KVP Filter has been passed empty parameters.'
+        throw 'Sound filterRadio has been passed empty parameters.'
     }
 
     if(!options.options){
-        throw 'Sound KVPFilter requires some options to select from';
+        throw 'Sound filterRadio requires some options to select from';
     }
 
     var args = {};
@@ -24,11 +24,18 @@ SoundDialogs.prototype.filterRadio = function(options){
 
     function callback(results){
         if(!options.callback){
-            console.log('No callback provided for sound.dialogs.selectKVP.  Acceptable, but not very useful')
+            console.log('No callback provided for sound.dialogs.filterRadio.  Acceptable, but not very useful')
             return;
         }
-        options.submit = parseInt(options.submit);
-        options.callback(results);
+        var callbackData = {
+            submit: parseInt(results.submit)
+        };
+
+        if(results.selected){
+            callbackData.selected = results.selected;
+        }
+
+        options.callback(callbackData);
 
     }
 
