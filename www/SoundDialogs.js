@@ -27,7 +27,7 @@ SoundDialogs.prototype.filterRadio = function(options){
             console.log('No callback provided for sound.dialogs.selectKVP.  Acceptable, but not very useful')
             return;
         }
-
+        options.submit = parseInt(options.submit);
         options.callback(results);
 
     }
