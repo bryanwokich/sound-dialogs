@@ -4,7 +4,7 @@ for Android and iOS, from [Sound Software, Inc.](http://www.sound-software.us)
 
 ## 1. Description
 This phonegap plugin provides some dialogs for iOS and Android that are not available in the standard cordova plugins.  These include:
-* Password Dialog: Alert with callbacks that will show allow you to collect an obfuscated password.  
+* Password Dialog: Collect an obfuscated password.  
 * Filtered Radio: Provide a list and the user will get a filterable dialog.  Select one.
 
 ## 2.  Installation 
