@@ -3,8 +3,9 @@
 for Android and iOS, from [Sound Software, Inc.](http://www.sound-software.us)
 
 ## 1. Description
-This is basic phonegap plugin for dialogs.  I may extend it in the future, so it has a generic name.  As of now, it provides password prompts for Android and iOS
-
+This phonegap plugin provides some dialogs for iOS and Android that are not available in the standard cordova plugins.  These include:
+* Password Dialog: Alert with callbacks that will show allow you to collect an obfuscated password.  
+* Filtered Radio: Provide a list and the user will get a filterable dialog.  Select one.
 
 ## 2.  Installation 
 
@@ -31,5 +32,24 @@ window.plugins.sound.dialogs.passwordPrompt({
     }
 });
 ```
+
+```
+window.plugins.sound.dialogs.filterRadio({
+    callback: function(result){
+        if(result.submit){ // submit return 1
+            // if form submitted, 0 if canceled.
+            alert(result.selected); // And the selected option....
+        }
+        // success callback function
+    },
+    title: 'Pick one',
+    options: options,
+    error: function(error){
+        console.log('KVP error!', error);
+        //  error callback.  Default to null.
+    }
+});
+```
+
 Happy Coding!
 Bryan 
