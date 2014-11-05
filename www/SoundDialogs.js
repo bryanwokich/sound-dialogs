@@ -1,5 +1,4 @@
 function SoundDialogs() {
-    this.defaultButtons = ["Cancel", "OK"];
 }
 
 
@@ -46,7 +45,7 @@ SoundDialogs.prototype.filterRadio = function(options){
         error = null;
     }
 
-    args.buttonLabels = typeof options.buttonLabels == 'undefined' ? this.defaultButtons : options.buttonLabels;
+    args.buttonLabels = typeof options.buttonLabels == 'undefined' ? ["Cancel", "OK"] : options.buttonLabels;
     args.options = options.options;
     cordova.exec(callback, error, 'SoundDialogs', "filterRadio", [args.options, args.buttonLabels, args.title]);
 }
@@ -60,7 +59,7 @@ SoundDialogs.prototype.passwordPrompt = function (options) {
     var args = {};
     args.message = (options.message || "Please provide a password");
     args.title = (options.title || "Password");
-    args.buttonLabels = (options.buttonLabels || this.defaultButtons);
+    args.buttonLabels = typeof options.buttonLabels == 'undefined' ? ["Cancel", "OK"] : options.buttonLabels;
     //==============================================
     //  I want to be able to test if "submit" as a bool, so I'm going to force an int here
     //  before calling the user provided callback...   - BMW (9/11/14)
