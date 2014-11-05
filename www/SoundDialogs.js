@@ -45,7 +45,7 @@ SoundDialogs.prototype.filterRadio = function(options){
     } else {
         error = null;
     }
-    args.buttonLabels = (options.buttonLabels || this.defaultButtons);
+    args.buttonLabels = typeof options.buttonLabels == 'undefined' ? this.defaultButtons : options.buttonLabels;
     args.options = options.options;
     cordova.exec(callback, error, 'SoundDialogs', "filterRadio", [args.options, args.buttonLabels, args.title]);
 }
